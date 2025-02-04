@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Banner from './components/Banner/Banner'
 import Header from './components/Header/header'
+import Players from './components/Players/Players'
 /* import './components/Header/' */
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
 
       <Header coins={coins}></Header>
       <Banner handleClaim={handleClaim}></Banner>
+      <Players></Players>
     </section>
     </>
   )
