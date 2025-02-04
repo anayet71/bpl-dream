@@ -1,5 +1,6 @@
 import './banner.css'
-const Banner = () => {
+import PropTypes from 'prop-types';
+const Banner = ({handleClaim}) => {
     return (
         <div>
             <div className='banner text-center'>
@@ -12,8 +13,8 @@ const Banner = () => {
                   {/*   <div className='w-[200px] h-[64px] mx-auto border-2  border-[#E7FE29] '>
                        
                     </div> */}
-                        <div className=''>
-                             <button  className=' py-4 px-8 m-4 border-4 border-[#9eab31] bg-[#E7FE29] text-black  font-bold rounded-xl
+                        <div>
+                             <button  onClick={handleClaim} className=' py-4 px-8 m-4 border-4 border-[#9eab31] bg-[#E7FE29] text-black  font-bold rounded-xl
                               '>Claim Free Credit </button>
                         </div>
 
@@ -23,4 +24,7 @@ const Banner = () => {
     );
 };
 
+Banner.propTypes ={
+    handleClaim: PropTypes.func.isRequired
+}
 export default Banner;
