@@ -13,7 +13,7 @@ const Banner = () => {
                        
                     </div> */}
                         <div className=''>
-                             <button onClick={handleClainCredit} className=' py-4 px-8 m-4 border-4 border-[#9eab31] bg-[#E7FE29] text-black  font-bold rounded-xl
+                             <button  className=' py-4 px-8 m-4 border-4 border-[#9eab31] bg-[#E7FE29] text-black  font-bold rounded-xl
                               '>Claim Free Credit </button>
                         </div>
 
