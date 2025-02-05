@@ -1,0 +1,12 @@
+.player{
+    border: 2px solid gainsboro;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 16px;
+}
+.player img{
+    border-radius: 16px;
+}
+.hidden {
+    display: none;
+  }

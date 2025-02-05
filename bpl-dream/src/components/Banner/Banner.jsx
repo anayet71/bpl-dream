@@ -13,7 +13,7 @@ const Banner = ({handleClaim}) => {
                   {/*   <div className='w-[200px] h-[64px] mx-auto border-2  border-[#E7FE29] '>
                        
                     </div> */}
-                        <div className='border-2 border-[#E7FE29] w-[18%] mx-auto rounded-2xl' >
+                        <div className='btn-div border-2 border-[#E7FE29] w-[18%] mx-auto rounded-2xl' >
                              <button  onClick={handleClaim} className=' py-4 px-8 m-2  bg-[#E7FE29] text-black  font-bold rounded-xl
                               '>Claim Free Credit </button>
                         </div>
