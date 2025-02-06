@@ -3,6 +3,7 @@ import { useState } from "react";
 import Player from "../Player/Player";
 import './players.css'
 import PropTypes from "prop-types";
+import Selected from "../Selected/Selected";
 
 const Players = ({ handleSelect, handleAvailable, activeButton }) => {
     const [players, setPlayers] = useState([])
@@ -24,10 +25,13 @@ const Players = ({ handleSelect, handleAvailable, activeButton }) => {
                         </button>
                     </div>
                     <div>
-                        {/* <button onClick={handleSelect} className=" py-3.5 px-3  rounded-xl text-gray-400 ">Selected {select}</button> */}
+                      
                         <button
-                            onClick={handleSelect} // Handle "Selected" button click
-                            className={`py-3.5 px-7 rounded-r-xl ${activeButton === "selected" ? "bg-green-500 text-white" : "bg-gray-200 text-gray-400"
+                             onClick={() => {
+                                handleSelect();  // Call your function
+                                // Show alert
+                            }} // Handle "Selected" button click
+                            className={`py-3.5 px-7 rounded-r-xl ${activeButton === "selected" ? "bg-[#E7FE29] text-black " : "bg-gray-200 text-gray-400"
                                 }`}
                         >
                             Selected
@@ -37,15 +41,20 @@ const Players = ({ handleSelect, handleAvailable, activeButton }) => {
 
             </div>
             <h1 className="font-bold text-5xl">Players: {players.length}</h1>
-            <div className="player-box">
-                {/*  {
-                    players.map(player => <Player key={player.playerId} player={player} isVisible={isPlayerVisible}></Player>)
-                } */}
-                {activeButton === "available" && // Show players only if "Available" is active
-                    players.map((player) => (
-                        <Player key={player.playerId} player={player}></Player>
-                    ))}
 
+            <div className="player-box">
+            {players.map((player) => (
+                    <Player
+                        key={player.playerId}
+                        player={player}
+                        isVisible={activeButton === "available"} // Pass isVisible prop
+                    />
+                ))}
+
+            </div>
+
+            <div>
+                <Selected isVisible= {activeButton ==='available'}></Selected>
             </div>
         </>
     );
@@ -54,7 +63,7 @@ const Players = ({ handleSelect, handleAvailable, activeButton }) => {
 Players.propTypes = {
     handleSelect: PropTypes.func.isRequired,
     handleAvailable: PropTypes.func.isRequired,
-    activeButton: PropTypes.string.isRequired, // Add PropTypes for activeButton
+    activeButton: PropTypes.string.isRequired, 
 
 }
 export default Players;

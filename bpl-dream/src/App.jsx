@@ -8,7 +8,7 @@ import Players from './components/Players/Players'
 function App() {
 
   const [coins, setCoins] = useState(0)
-  const [activeButton, setActiveButton] = useState("available"); // Track active button
+  const [activeButton, setActiveButton] = useState("available"); 
 
 
 
@@ -18,11 +18,11 @@ function App() {
   }
 
   const handleSelect = () => {
-    setActiveButton("selected"); // Hide the player div
+    setActiveButton("selected"); 
   }
 
   const handleAvailable = () => {
-    setActiveButton("available"); // Set active button to "available"
+    setActiveButton("available"); 
   };
 
   return (
