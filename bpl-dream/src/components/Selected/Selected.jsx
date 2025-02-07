@@ -9,14 +9,15 @@ const Selected = ({ selectedPlayers, isVisible, handleAddMore,handleDelete }) =>
                     {selectedPlayers.map((player) => (
                         <div key={player.playerId} className="selected-player my-8 border border-gray-200 p-5 rounded-xl flex justify-between ">
                             <div className='flex gap-4   '>
-                                <div className='w-26'>
+                                <div className='w-34'>
 
                                     <img className='w-full rounded-xl' src={player.image} alt={player.name} />
                                 </div>
                                 <div className=''>
-                                    <p className='font-bold text-xl pb-2 '> {player.name}</p>
+                                    <p className='font-bold text-xl  '> {player.name}</p>
 
-                                    <p className='text-gray-400 '> {player.battingType}</p>
+                                    <p className='text-gray-400 py-1'> {player.battingType}</p>
+                                    <p className='text-gray-500'>Price: {player.biddingPrice}</p>
 
                                 </div>
                             </div>

@@ -34,7 +34,7 @@ const Players = ({ handleSelect, handleAvailable, activeButton, handlePlayerSele
                 </div>
             </div>
            
-            <div className="player-box">
+            <div className="player-box pb-62">
                 {players.map((player) => (
                     <Player
                         key={player.playerId}
