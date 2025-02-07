@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { toast } from "react-toastify";
 
 const Player = ({ player, isVisible, handlePlayerSelect, isSelected, coins }) => {
-    const { playerId, name, image, country, role, battingType, bowlingType, biddingPrice } = player;
+    const { name, image, country, role, battingType, bowlingType, biddingPrice } = player;
 
     return (
         <div>

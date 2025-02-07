@@ -1,5 +1,8 @@
 This project name is BPL Dream
- Description: This project about Cricket player where you can dynamically choose player. To choose player you need certain amount of coins vary to player bidding price. You can add coins but clicking a button. You can add as much coins as you want. By these coins you can pay the bidding price. The selected player can be seen in the another section where you can toggle by clicking a button name "Selected". 
+
+
+
+Description: This project about Cricket player where you can dynamically choose player. To choose player you need certain amount of coins vary to player bidding price. You can add coins but clicking a button. You can add as much coins as you want. By these coins you can pay the bidding price. The selected player can be seen in the another section where you can toggle by clicking a button name "Selected". 
 
  Technologies: 
  1. ES6 JavaScript
