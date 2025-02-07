@@ -13,7 +13,7 @@ const Footer = () => {
                         py-3 pl-8 pr-12 text-black">Subscribe</button>
                     </div>
                 </div>
-                <div className="flex justify-center pb-16"><img src="../../../images/logo-footer.png" alt="" /></div>
+                <div className="flex justify-center pb-16"><img src="/public/images/logo-footer.png" alt="" /></div>
                 <div className="flex">
                     <div className=" flex-1">
                         <h3 className="text-xl pb-3">About Us</h3>

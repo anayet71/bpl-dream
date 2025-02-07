@@ -5,7 +5,7 @@ const Banner = ({handleClaim}) => {
         <div>
             <div className='banner text-center'>
                 <div className='pt-12 '>
-                    <img className='mx-auto' src="../../../images/banner-main.png" alt="" />
+                    <img className='mx-auto' src="/public/images/banner-main.png" alt="" />
                 </div>
                 <div>
                     <h1 className='text-4xl font-bold pt-6 pb-4 '>Assemble Your Ultimate Dream 11 Cricket Team</h1>
