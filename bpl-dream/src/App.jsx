@@ -6,6 +6,8 @@ import Players from './components/Players/Players';
 import Selected from './components/Selected/Selected';
 import Player from './components/Player/Player';
 import Footer from './components/Footer/Footer';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 
@@ -15,8 +17,8 @@ function App() {
     const [selectedPlayers, setSelectedPlayers] = useState([]); // Array to store multiple players
 
     const handleClaim = () => {
-        const prevCoins = coins + 2000000;
-        setCoins(prevCoins);
+        setCoins(coins + 2000000);
+        toast.success("You have claimed 200,000 coins!", { autoClose: 2000 });
     };
 
     const handleSelect = () => {
@@ -28,29 +30,42 @@ function App() {
     };
 
     const handlePlayerSelect = (player) => {
-      if (coins < player.biddingPrice) {
-          alert("Not enough money!"); // Show alert if coins are insufficient
-          return;
-      }
-  
-      if (!selectedPlayers.some((p) => p.playerId === player.playerId)) {
-          setSelectedPlayers([...selectedPlayers, player]);
-          setCoins(coins - player.biddingPrice); // Deduct coins after selection
-      }
-  };
-  
+        if (coins < player.biddingPrice) {
+            toast.error("Not enough money!", { autoClose: 2000 }); // Show error toast
+            return;
+        }
+
+        if (!selectedPlayers.some((p) => p.playerId === player.playerId)) {
+            setSelectedPlayers([...selectedPlayers, player]);
+            setCoins(coins - player.biddingPrice); // Deduct coins after selection
+            toast.success(`${player.name} selected!`, { autoClose: 2000 }); // Success message
+        }
+    };
+
+
 
     const handleAddMore = () => {
         setActiveButton("available"); // Switch back to the Available section
     };
 
-    const handleDelete =()=>{
-       
+    const handleDelete = () => {
+
         console.log('clicked')
     }
 
     return (
         <>
+            <ToastContainer
+                position="top-center"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <section className="max-w-[1320px] mx-auto mt-10">
                 <Header coins={coins}></Header>
                 <Banner handleClaim={handleClaim}></Banner>
@@ -62,7 +77,7 @@ function App() {
                     selectedPlayers={selectedPlayers}
                     coins={coins}
                 ></Players>
-             
+
                 {/* Pass selectedPlayers and handleAddMore to the Selected component */}
                 <Selected
                     selectedPlayers={selectedPlayers}
@@ -71,7 +86,8 @@ function App() {
                     handleDelete={handleDelete}
                 />
             </section>
-                <Footer></Footer>
+            <Footer></Footer>
+
         </>
     );
 }

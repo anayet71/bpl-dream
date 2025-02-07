@@ -1,5 +1,6 @@
 import "./player.css";
 import PropTypes from 'prop-types';
+import { toast } from "react-toastify";
 
 const Player = ({ player, isVisible, handlePlayerSelect, isSelected, coins }) => {
     const { playerId, name, image, country, role, battingType, bowlingType, biddingPrice } = player;
@@ -30,17 +31,19 @@ const Player = ({ player, isVisible, handlePlayerSelect, isSelected, coins }) =>
                     <div className="flex justify-between">
                         <p>Price: {biddingPrice}</p>
                         <button
-                            className={`btn`}
+                            className="btn"
                             onClick={() => {
                                 if (biddingPrice > coins) {
-                                    alert("Not enough money"); // Show alert modal if coins are insufficient
+                                    toast.error("Not enough money!", { autoClose: 2000 }); // Show error toast
                                 } else {
                                     handlePlayerSelect(player); // Select player if enough coins
+                                    toast.success(`${player.name} selected!`, { autoClose: 2000 }); // Success message
                                 }
                             }}
                         >
                             {isSelected ? "Selected" : "Choose Player"}
                         </button>
+
 
                     </div>
                 </div>

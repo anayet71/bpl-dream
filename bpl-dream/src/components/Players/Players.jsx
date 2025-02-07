@@ -3,6 +3,7 @@ import Player from "../Player/Player";
 import './players.css';
 import PropTypes from "prop-types";
 
+
 const Players = ({ handleSelect, handleAvailable, activeButton, handlePlayerSelect, selectedPlayers, coins }) => {
     const [players, setPlayers] = useState([]);
 
