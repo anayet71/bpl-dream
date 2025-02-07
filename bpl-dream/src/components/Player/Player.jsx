@@ -1,7 +1,8 @@
-import "./player.css"
-const Player = ({ player, isVisible }) => {
-    const { playerId, name, image, country, role, battingType, bowlingType, biddingPrice } = player
+import "./player.css";
+import PropTypes from 'prop-types';
 
+const Player = ({ player, isVisible, handlePlayerSelect, isSelected, coins }) => {
+    const { playerId, name, image, country, role, battingType, bowlingType, biddingPrice } = player;
 
     return (
         <div>
@@ -25,21 +26,35 @@ const Player = ({ player, isVisible }) => {
                     <div className="flex justify-between py-4">
                         <p>{battingType}</p>
                         <p className="text-end">{bowlingType}</p>
-
                     </div>
                     <div className="flex justify-between">
-
                         <p>Price: {biddingPrice}</p>
-                        <div className="  btn">Choose Player</div>
+                        <button
+                            className={`btn`}
+                            onClick={() => {
+                                if (biddingPrice > coins) {
+                                    alert("Not enough money"); // Show alert modal if coins are insufficient
+                                } else {
+                                    handlePlayerSelect(player); // Select player if enough coins
+                                }
+                            }}
+                        >
+                            {isSelected ? "Selected" : "Choose Player"}
+                        </button>
+
                     </div>
                 </div>
-
             </div>
-                {/* <div className={isVisible? 'show': 'hide'}>
-                    <h1 >Selected worked!!!!!!!!</h1>
-                </div> */}
         </div>
     );
+};
+
+Player.propTypes = {
+    player: PropTypes.object.isRequired,
+    isVisible: PropTypes.bool.isRequired,
+    handlePlayerSelect: PropTypes.func.isRequired,
+    isSelected: PropTypes.bool.isRequired,
+    coins: PropTypes.number
 };
 
 export default Player;
